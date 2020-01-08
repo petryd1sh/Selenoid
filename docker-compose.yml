@@ -7,7 +7,7 @@ services:
  selenoid:
    container_name: selenoid
    image: "aerokube/selenoid:1.3.7"
-   command: -limit 16 -retry-count 1000 -container-network selenoid_net -timeout 1                                                                                                                                                             0m0s
+   command: -limit 16 -retry-count 1000 -container-network selenoid_net -timeout 10m                                                                                                                                                             0m0s
    ports:
      - 4444:4444
    volumes:
