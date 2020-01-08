@@ -11,8 +11,8 @@ services:
    ports:
      - 4444:4444
    volumes:
-     - /selenoid/selenoid:/etc/selenoid:ro
-     - /selenoid/selenoid/config:/etc/selenoid/config:ro
+     - /docker/selenoid:/etc/selenoid:ro
+     - /docker/selenoid/config:/etc/selenoid/config:ro
      - /var/run/docker.sock:/var/run/docker.sock
    networks:
      - selenoid_net
