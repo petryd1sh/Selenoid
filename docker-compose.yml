@@ -24,22 +24,24 @@ services:
      - 8080:8080
    networks:
     - selenoid_net
-      # ggr:
-      #   restart: always
-      #   image: aerokube/ggr
-      #   ports:
-      #   - "4445:4445"
-      #   volumes:
-      #   - "/docker/selenoid:/etc/grid-router:ro"
-      #   command: ["-quotaDir", "/etc/grid-router"]
-      #   networks:
-      #   - selenoid_net
-      # ggr-ui:
-      #   restart: always
-      #   image: aerokube/ggr-ui
-      #   ports:
-      #   - "8889:8889"
-      #   volumes:
-      #   - "/docker/selenoid:/etc/grid-router/quota:ro"
-      #   networks:
-      #   - selenoid_net
+ ggr:
+   container_name: ggr
+   restart: always
+   image: aerokube/ggr
+   ports:
+   - "4445:4445"
+   volumes:
+   - "/docker/selenoid:/etc/grid-router:ro"
+   command: ["-quotaDir", "/etc/grid-router"]
+   networks:
+   - selenoid_net
+ ggr-ui:
+   container_name: ggr-ui
+   restart: always
+   image: aerokube/ggr-ui
+   ports:
+   - "8889:8889"
+   volumes:
+   - "/docker/selenoid:/etc/grid-router/quota:ro"
+   networks:
+   - selenoid_net
