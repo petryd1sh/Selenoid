@@ -21,7 +21,7 @@ services:
    image: "aerokube/selenoid-ui:1.4.3"
    command: -selenoid-uri 'http://selenoid:4444'
    ports:
-     - 8080:8080
+     - 9090:8080
    networks:
     - selenoid_net
  ggr:
@@ -31,8 +31,8 @@ services:
    ports:
    - "4445:4445"
    volumes:
-   - "/docker/selenoid:/etc/grid-router:ro"
-   command: ["-quotaDir", "/etc/grid-router"]
+   - "./:/etc/grid-router:ro"
+   command: ["-quotaDir", "/etc/grid-router/quota"]
    networks:
    - selenoid_net
  ggr-ui:
@@ -42,6 +42,6 @@ services:
    ports:
    - "8889:8889"
    volumes:
-   - "/docker/selenoid:/etc/grid-router/quota:ro"
+   - "./:/etc/grid-router/quota:ro"
    networks:
    - selenoid_net
